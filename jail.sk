@@ -508,81 +508,107 @@ on break:
 
         set {_id} to loop-value
 
-        if {arrest::jail::%{_id}%::active} is true:
+        # 牢屋が無効なら次へ
+        if {arrest::jail::%{_id}%::active} is not true:
+            continue
 
-            set {_world} to {arrest::jail::%{_id}%::world}
-
-            if world of player is {_world}:
-
-                set {_bx} to x-coordinate of event-block
-                set {_by} to y-coordinate of event-block
-                set {_bz} to z-coordinate of event-block
-
-                set {_x1} to {arrest::jail::%{_id}%::x1}
-                set {_x2} to {arrest::jail::%{_id}%::x2}
-
-                set {_z1} to {arrest::jail::%{_id}%::z1}
-                set {_z2} to {arrest::jail::%{_id}%::z2}
-
-                set {_floor} to {arrest::jail::%{_id}%::floor}
-                set {_ceiling} to {arrest::jail::%{_id}%::ceiling}
+        # 別ワールドなら次へ
+        if world of player is not {arrest::jail::%{_id}%::world}:
+            continue
 
 
-                # ------------------------------------------------
-                # 牢屋本体
-                # ------------------------------------------------
+        # ====================================================
+        # 壊そうとしているブロックの座標
+        # ====================================================
 
-                if {_bx} is between {_x1} and {_x2}:
-                    if {_by} is between {_floor} and {_ceiling}:
-                        if {_bz} is between {_z1} and {_z2}:
-
-                            cancel event
-                            stop
+        set {_bx} to floor(x-coordinate of event-block)
+        set {_by} to floor(y-coordinate of event-block)
+        set {_bz} to floor(z-coordinate of event-block)
 
 
-                # ------------------------------------------------
-                # 北の看板
-                # ------------------------------------------------
+        # ====================================================
+        # 牢屋の範囲
+        # ====================================================
 
-                if {_bx} is {arrest::jail::%{_id}%::sign::north::x}:
-                    if {_by} is {arrest::jail::%{_id}%::sign::north::y}:
-                        if {_bz} is {arrest::jail::%{_id}%::sign::north::z}:
+        set {_x1} to {arrest::jail::%{_id}%::x1}
+        set {_x2} to {arrest::jail::%{_id}%::x2}
 
-                            cancel event
-                            stop
+        set {_z1} to {arrest::jail::%{_id}%::z1}
+        set {_z2} to {arrest::jail::%{_id}%::z2}
 
-
-                # ------------------------------------------------
-                # 南の看板
-                # ------------------------------------------------
-
-                if {_bx} is {arrest::jail::%{_id}%::sign::south::x}:
-                    if {_by} is {arrest::jail::%{_id}%::sign::south::y}:
-                        if {_bz} is {arrest::jail::%{_id}%::sign::south::z}:
-
-                            cancel event
-                            stop
+        set {_floor} to {arrest::jail::%{_id}%::floor}
+        set {_ceiling} to {arrest::jail::%{_id}%::ceiling}
 
 
-                # ------------------------------------------------
-                # 西の看板
-                # ------------------------------------------------
+        # ====================================================
+        # 牢屋本体
+        #
+        # X
+        # X
+        # Y
+        # Y
+        # Z
+        # Z
+        #
+        # すべて個別に判定する
+        # ====================================================
 
-                if {_bx} is {arrest::jail::%{_id}%::sign::west::x}:
-                    if {_by} is {arrest::jail::%{_id}%::sign::west::y}:
-                        if {_bz} is {arrest::jail::%{_id}%::sign::west::z}:
+        if {_bx} >= {_x1}:
+            if {_bx} <= {_x2}:
 
-                            cancel event
-                            stop
+                if {_by} >= {_floor}:
+                    if {_by} <= {_ceiling}:
+
+                        if {_bz} >= {_z1}:
+                            if {_bz} <= {_z2}:
+
+                                cancel event
+                                stop
 
 
-                # ------------------------------------------------
-                # 東の看板
-                # ------------------------------------------------
+        # ====================================================
+        # 北の看板
+        # ====================================================
 
-                if {_bx} is {arrest::jail::%{_id}%::sign::east::x}:
-                    if {_by} is {arrest::jail::%{_id}%::sign::east::y}:
-                        if {_bz} is {arrest::jail::%{_id}%::sign::east::z}:
+        if {_bx} is {arrest::jail::%{_id}%::sign::north::x}:
+            if {_by} is {arrest::jail::%{_id}%::sign::north::y}:
+                if {_bz} is {arrest::jail::%{_id}%::sign::north::z}:
 
-                            cancel event
-                            stop
+                    cancel event
+                    stop
+
+
+        # ====================================================
+        # 南の看板
+        # ====================================================
+
+        if {_bx} is {arrest::jail::%{_id}%::sign::south::x}:
+            if {_by} is {arrest::jail::%{_id}%::sign::south::y}:
+                if {_bz} is {arrest::jail::%{_id}%::sign::south::z}:
+
+                    cancel event
+                    stop
+
+
+        # ====================================================
+        # 西の看板
+        # ====================================================
+
+        if {_bx} is {arrest::jail::%{_id}%::sign::west::x}:
+            if {_by} is {arrest::jail::%{_id}%::sign::west::y}:
+                if {_bz} is {arrest::jail::%{_id}%::sign::west::z}:
+
+                    cancel event
+                    stop
+
+
+        # ====================================================
+        # 東の看板
+        # ====================================================
+
+        if {_bx} is {arrest::jail::%{_id}%::sign::east::x}:
+            if {_by} is {arrest::jail::%{_id}%::sign::east::y}:
+                if {_bz} is {arrest::jail::%{_id}%::sign::east::z}:
+
+                    cancel event
+                    stop
