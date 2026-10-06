@@ -1,7 +1,7 @@
 # ============================================================
 # ARREST GAME
 # File : crime/flower.sk
-# Version : v0.0.06
+# Version : v0.0.04
 #
 # 犯罪：花踏み罪
 #
@@ -81,77 +81,77 @@ every 1 tick:
             continue
 
         if {_block} is dandelion:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is poppy:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is blue orchid:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is allium:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is azure bluet:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is red tulip:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is orange tulip:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is white tulip:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is pink tulip:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is oxeye daisy:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is cornflower:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is lily of the valley:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is wither rose:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is sunflower:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is lilac:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is rose bush:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴッド")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is peony:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is torchflower:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue
 
         if {_block} is pink petals:
-            arrest_create_jail({_p}, "花踏み罪", 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "flower")
             continue

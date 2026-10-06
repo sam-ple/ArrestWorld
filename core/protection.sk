@@ -1,6 +1,6 @@
 # ============================================================
 # ARREST GAME
-# File : protection.sk
+# File : core/protection.sk
 # Version : v0.0.05
 #
 # 収監中プレイヤー保護

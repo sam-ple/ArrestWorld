@@ -1,88 +1,53 @@
 # ============================================================
 # ARREST GAME
 # File : arrest.sk
-# Version : v0.0.01
-# ============================================================
-
-options:
-
-    jail-time: 30
-    bail-amount: 5
-    bossbar-radius: 30
-
-
-# ============================================================
-# ARREST ON
+# Version : v0.0.04
+#
+# ゲーム開始・停止・状態確認
+#
+# v0.0.04
+# ・v0.0.03の動作を維持
+# ・設定をconfigへ分離
+# ・逮捕処理をcoreへ集約
 # ============================================================
 
 command /arrest [<text>]:
 
     trigger:
 
-        # ----------------------------------------------------
-        # ON
-        # ----------------------------------------------------
-
         if arg-1 is "on":
 
-            # 既存データを初期化
             delete {arrest::enabled}
             delete {arrest::world}
             delete {arrest::jail::*}
             delete {arrest::player::*}
 
-            # 設定値を共有変数へ保存
-            set {arrest::config::jail-time} to {@jail-time}
-            set {arrest::config::bail-amount} to {@bail-amount}
-            set {arrest::config::bossbar-radius} to {@bossbar-radius}
+            arrest_load_general_config()
+            arrest_load_crime_config()
 
-            # 実行したワールドを対象ワールドにする
             set {arrest::world} to world of player
-
-            # ARREST開始
             set {arrest::enabled} to true
 
             send "&a[ARREST GAME] 判定を開始しました。"
             send "&7対象ワールド：%{arrest::world}%"
-            send "&7Version：v0.0.01"
-
+            send "&7Version：v0.0.04"
             stop
-
-
-        # ----------------------------------------------------
-        # OFF
-        # ----------------------------------------------------
 
         if arg-1 is "off":
 
             set {arrest::enabled} to false
 
             send "&c[ARREST GAME] 判定を停止しました。"
-
             stop
-
-
-        # ----------------------------------------------------
-        # STATUS
-        # ----------------------------------------------------
 
         if arg-1 is "status":
 
             if {arrest::enabled} is true:
-
                 send "&a[ARREST GAME] ON"
                 send "&7対象ワールド：%{arrest::world}%"
-
             else:
-
                 send "&c[ARREST GAME] OFF"
-
             stop
-
-
-        # ----------------------------------------------------
-        # 引数なし
-        # ----------------------------------------------------
 
         send "&e/arrest on"
         send "&e/arrest off"

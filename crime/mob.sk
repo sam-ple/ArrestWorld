@@ -1,7 +1,7 @@
 # ============================================================
 # ARREST GAME
 # File : crime/mob.sk
-# Version : v0.0.01
+# Version : v0.0.04
 #
 # 犯罪：なんかかわいそう罪
 #
@@ -99,4 +99,4 @@ on damage of entity:
     # 逮捕
     # ========================================================
 
-    arrest_create_jail(attacker, {_reason}, 30, copper ingot, 3, "銅インゴット")
+    arrest_crime(attacker, "mob")

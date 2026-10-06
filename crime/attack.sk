@@ -59,4 +59,4 @@ on damage of player:
     # 金インゴット × 2
     # --------------------------------------------------------
 
-    arrest_create_jail({_p}, {_reason}, 60, gold ingot, 2, "金インゴット")
+    arrest_crime({_p}, "attack")

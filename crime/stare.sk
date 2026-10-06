@@ -99,4 +99,4 @@ every 1 second:
 
             set {_reason} to "凝視罪"
 
-            arrest_create_jail({_p}, {_reason}, 30, copper ingot, 3, "銅インゴット")
+            arrest_crime({_p}, "stare")
