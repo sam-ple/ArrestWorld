@@ -17,10 +17,6 @@ function arrest_crime(p: player, crime: text):
     if world of {_p} is not {arrest::world}:
         stop
 
-    # サバイバルのみ逮捕対象
-    if gamemode of {_p} is not survival:
-        stop        
-
     if {arrest::player::%uuid of {_p}%::jail} is set:
         stop
 
@@ -34,3 +30,4 @@ function arrest_crime(p: player, crime: text):
     set {_bailname} to {arrest::crime::%{_crime}%::bail-name}
 
     arrest_create_jail({_p}, {_reason}, {_jailtime}, {_bailitem}, {_bailamount}, {_bailname})
+    arrest_sound_arrest({_p})

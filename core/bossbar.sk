@@ -160,4 +160,5 @@ every 1 second:
 
                 if {arrest::jail::%{_id}%::time} <= 0:
 
+                    arrest_sound_release({_p})
                     arrest_release_jail({_id})

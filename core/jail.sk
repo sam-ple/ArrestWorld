@@ -467,6 +467,7 @@ function arrest_bail_jail(id: number, p: player):
 
         arrest_message_bail({_p}, {_bailname}, {_bailamount})
         arrest_release_jail({_id})
+        arrest_sound_bail({_p})
 
     else:
 
