@@ -1,12 +1,33 @@
 # ARREST GAME
 
+* * *
+
 Minecraft の世界で、日常的な行動を「犯罪」として判定し、犯罪者をその場で逮捕・収監するゲーム。
 
-本作品は、**ドズル社の動画で扱われていた「やったら逮捕される世界」の企画・ゲーム性を再現することを目的として制作した個人制作作品**です。
+本作品は、**ドズル社の動画で公開された「〇〇したら逮捕される世界」の企画・ゲーム内容を参考に、Minecraft + Paper + Skript を用いて個人で実装・再現したファンメイド作品です。**
 
-> ※本リポジトリはゲームシステムを Minecraft + Paper + Skript で再現・実装するものであり、ドズル社および関係者による公式作品ではありません。
+本作品はドズル社および関係者による公式作品ではなく、**ドズル社との関係・提携・公認を示すものではありません。**
+
+> ドズル社二次創作ガイドライン  
+> https://www.dozle.jp/support_rule/#support_fanworks
 
 ## 参考にした動画
+
+* 【理不尽すぎる】〇〇すると逮捕される世界でエンドラ討伐！【マイクラ】(2026/09/26)
+  * https://www.youtube.com/watch?v=9PIAa67Rx4M
+* エンドラ討伐してたら逮捕されました【マイクラ】(2025/08/08)
+  * https://www.youtube.com/watch?v=CZ4jDD7V0vc
+* 【マイクラ】〇〇したら逮捕される世界でサバイバル(2022/11/15)
+  * https://www.youtube.com/watch?v=SnFePUO4kD4
+
+> 補足：発案者のみのまさん（ドズル社企画会議で視聴者のみのまさんのアイデアを元に動画化。）  
+> https://www.youtube.com/watch?v=q15Fqy76T7M&t=521s  
+> https://www.youtube.com/watch?v=h49ilAHtk_c&t=1814s  
+
+* 本作品の制作にあたり、ドズル社の動画で公開されている「〇〇したら逮捕される世界」の企画・ゲーム内容を参考にしています。
+* 本リポジトリでは、これらの動画で公開されたゲーム内容を参考に、Minecraft上で動作するゲームシステムとして独自に実装しています。  
+
+---
 
 ## Overview
 
@@ -32,20 +53,11 @@ BossBarで刑期表示
 
 ---
 
-## Environment
-
-* Minecraft: 26.2
-* Paper: 26.2-112
-* Skript: 2.16.1
-* Java: 25
-
----
-
 ## Installation
 
 ### 1. Paperサーバーを起動
 
-Paper26.2を使用したサーバーを用意します。
+Paper 26.2を使用したサーバーを用意します。
 
 ### 2. Skriptを導入
 
@@ -140,11 +152,11 @@ ARREST GAMEを停止します。
 
 ---
 
-## Test Environment
+## Test Setup
 
 基本的には、専用のARREST GAME用ワールドを用意してテストすることを推奨します。
 
-Multiverse-Coreを使用している場合は、例えば以下のようにワールドを作成できます。
+Multiverse-Coreを使用している場合：
 
 ### ワールド作成
 
@@ -157,8 +169,6 @@ Multiverse-Coreを使用している場合は、例えば以下のようにワ�
 ```text
 /mvtp arrest
 ```
-
-参加者全員をARREST GAME用ワールドへ移動させます。
 
 ### Skriptをリロード
 
@@ -174,13 +184,42 @@ Multiverse-Coreを使用している場合は、例えば以下のようにワ�
 /arrest on
 ```
 
-これでARREST GAMEを開始できます。
-
 ---
 
-## Recommended Server Settings
+## Test Environment
 
-`server.properties` で以下の設定を推奨します。
+本作品は、以下の環境で動作確認を行っています。
+
+### Server
+
+* OS: macOS
+* Minecraft: 26.2
+* Paper: 26.2-121
+  * paper-26.2-121.jarでの実施
+  * 10/7現在の最新版はpaper-26.2-132.jar
+* Java: OpenJDK 25
+* Skript: 2.16.1
+  * Skript-2.16.1.jarでの実施
+  * 10/7現在の最新はSkript-2.16.2.jar
+* Players: 5～10人程度を想定
+
+### Server Startup
+
+6GBを割り当ててPaperサーバーを起動します。
+
+```bash
+java -Xms6G -Xmx6G -jar paper-26.2-121.jar nogui
+```
+
+### Network
+
+外部からの接続にはplayitを使用しています。
+
+* playit: Premium
+
+サーバー起動後、playitのトンネルを起動して外部から接続できる構成でテストしています。
+
+### Server Settings
 
 ```properties
 view-distance=8
@@ -190,9 +229,6 @@ simulation-distance=6
 * `view-distance=8`
   * プレイヤーから見えるチャンクの距離
 * `simulation-distance=6`
-  * モブやレッドストーンなど、実際に処理されるチャンクの距離
+  * モブやレッドストーンなどが実際に処理される範囲
 
-ARREST GAMEでは、5～10人程度でのプレイを想定しています。
-
-必要以上に描画・シミュレーション範囲を広げず、サーバー負荷とのバランスを取る設定です。
-
+5～10人程度でのプレイを想定し、描画・シミュレーション範囲とサーバー負荷のバランスを取った設定です。

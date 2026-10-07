@@ -121,22 +121,45 @@ function arrest_create_jail(p: player, reason: text, jailtime: number, bailitem:
     # ============================================================
 
     # 内部を空気にする
-    execute {_p} command "/fill %{_x1}% %{_player-y}% %{_z1}% %{_x2}% %{_wall-top}% %{_z2}% air"
+    # ※ fill を使わず、牢屋のワールドを指定した location を直接操作
+    set blocks within location({_x1}, {_player-y}, {_z1}, {_world}) and location({_x2}, {_wall-top}, {_z2}, {_world}) to air
 
     # 床
-    execute {_p} command "/fill %{_x1}% %{_floor}% %{_z1}% %{_x2}% %{_floor}% %{_z2}% reinforced_deepslate"
+    set blocks within location({_x1}, {_floor}, {_z1}, {_world}) and location({_x2}, {_floor}, {_z2}, {_world}) to reinforced_deepslate
 
     # 天井
-    execute {_p} command "/fill %{_x1}% %{_ceiling}% %{_z1}% %{_x2}% %{_ceiling}% %{_z2}% reinforced_deepslate"
+    set blocks within location({_x1}, {_ceiling}, {_z1}, {_world}) and location({_x2}, {_ceiling}, {_z2}, {_world}) to reinforced_deepslate
 
     # 北・南の壁
-    execute {_p} command "/fill %{_x1}% %{_player-y}% %{_z1}% %{_x2}% %{_wall-top}% %{_z1}% iron_bars"
-    execute {_p} command "/fill %{_x1}% %{_player-y}% %{_z2}% %{_x2}% %{_wall-top}% %{_z2}% iron_bars"
+    set blocks within location({_x1}, {_player-y}, {_z1}, {_world}) and location({_x2}, {_wall-top}, {_z1}, {_world}) to iron bars
+    set blocks within location({_x1}, {_player-y}, {_z2}, {_world}) and location({_x2}, {_wall-top}, {_z2}, {_world}) to iron bars
 
     # 西・東の壁
-    execute {_p} command "/fill %{_x1}% %{_player-y}% %{_z1}% %{_x1}% %{_wall-top}% %{_z2}% iron_bars"
-    execute {_p} command "/fill %{_x2}% %{_player-y}% %{_z1}% %{_x2}% %{_wall-top}% %{_z2}% iron_bars"
+    set blocks within location({_x1}, {_player-y}, {_z1}, {_world}) and location({_x1}, {_wall-top}, {_z2}, {_world}) to iron bars
+    set blocks within location({_x2}, {_player-y}, {_z1}, {_world}) and location({_x2}, {_wall-top}, {_z2}, {_world}) to iron bars
 
+    # ============================================================
+    # 四隅の鉄格子を再配置
+    # ============================================================
+    # 鉄格子の接続状態を確実に更新する
+    # 四隅は3段すべて再設置
+    # ============================================================
+
+    # 北西
+    set blocks within location({_x1}, {_player-y}, {_z1}, {_world}) and location({_x1}, {_wall-top}, {_z1}, {_world}) to air
+    set blocks within location({_x1}, {_player-y}, {_z1}, {_world}) and location({_x1}, {_wall-top}, {_z1}, {_world}) to iron bars
+
+    # 南西
+    set blocks within location({_x1}, {_player-y}, {_z2}, {_world}) and location({_x1}, {_wall-top}, {_z2}, {_world}) to air
+    set blocks within location({_x1}, {_player-y}, {_z2}, {_world}) and location({_x1}, {_wall-top}, {_z2}, {_world}) to iron bars
+
+    # 北東
+    set blocks within location({_x2}, {_player-y}, {_z1}, {_world}) and location({_x2}, {_wall-top}, {_z1}, {_world}) to air
+    set blocks within location({_x2}, {_player-y}, {_z1}, {_world}) and location({_x2}, {_wall-top}, {_z1}, {_world}) to iron bars
+
+    # 南東
+    set blocks within location({_x2}, {_player-y}, {_z2}, {_world}) and location({_x2}, {_wall-top}, {_z2}, {_world}) to air
+    set blocks within location({_x2}, {_player-y}, {_z2}, {_world}) and location({_x2}, {_wall-top}, {_z2}, {_world}) to iron bars
 
     # ============================================================
     # 保釈看板
