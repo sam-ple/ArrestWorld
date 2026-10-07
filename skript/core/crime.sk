@@ -1,12 +1,12 @@
 # ============================================================
 # ARREST GAME
 # File : core/crime.sk
-# Version : v0.0.04
 #
 # 逮捕共通処理
 #
 # 罪状ファイルは「何をしたか」の判定だけを担当し、
 # 実際の逮捕条件・設定取得・牢屋生成はここで共通化する。
+#
 # ============================================================
 
 function arrest_crime(p: player, crime: text):
@@ -15,6 +15,9 @@ function arrest_crime(p: player, crime: text):
         stop
 
     if world of {_p} is not {arrest::world}:
+        stop
+
+    if gamemode of {_p} is not survival:
         stop
 
     if {arrest::player::%uuid of {_p}%::jail} is set:

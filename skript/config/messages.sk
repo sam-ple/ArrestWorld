@@ -1,9 +1,9 @@
 # ============================================================
 # ARREST GAME
 # File : config/messages.sk
-# Version : v0.0.04
 #
 # メッセージ・タイトル
+#
 # ============================================================
 
 function arrest_message_jail(p: player, reason: text, jailtime: number, bailname: text, bailamount: number):

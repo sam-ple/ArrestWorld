@@ -1,99 +1,159 @@
 # ============================================================
 # ARREST GAME
 # File : crime/mob.sk
-# Version : v0.0.04
 #
 # 犯罪：なんかかわいそう罪
 #
-# プレイヤーに敵対しないモブを攻撃した場合に逮捕
+# プレイヤーが敵対しないモブを攻撃した場合に逮捕
 # ※ 動物だけではなく魚・イカなども対象
 #
 # ============================================================
 
 
+# ============================================================
+# エンティティにダメージを与えた
+# ============================================================
+
 on damage of entity:
 
     # ========================================================
-    # ARREST GAMEが無効
+    # 攻撃者がプレイヤーの場合のみ
     # ========================================================
 
-    if {arrest::enabled} is not true:
-        stop
-
-
-    # ========================================================
-    # 攻撃したのがプレイヤー以外なら無視
-    # ========================================================
-
-    if attacker is not a player:
-        stop
-
-
-    # ========================================================
-    # 対象ワールド以外
-    # ========================================================
-
-    if world of attacker is not {arrest::world}:
-        stop
-
-
-    # ========================================================
-    # すでに収監中
-    # ========================================================
-
-    if {arrest::player::%uuid of attacker%::jail} is set:
-        stop
-
+    attacker is a player
 
     # ========================================================
     # 攻撃されたモブを判定
     # ========================================================
 
-    if victim is not allay:
-        if victim is not armadillo:
-            if victim is not axolotl:
-                if victim is not bat:
-                    if victim is not camel:
-                        if victim is not cat:
-                            if victim is not chicken:
-                                if victim is not cod:
-                                    if victim is not cow:
-                                        if victim is not dolphin:
-                                            if victim is not donkey:
-                                                if victim is not fox:
-                                                    if victim is not frog:
-                                                        if victim is not glow squid:
-                                                            if victim is not horse:
-                                                                if victim is not mooshroom:
-                                                                    if victim is not mule:
-                                                                        if victim is not ocelot:
-                                                                            if victim is not panda:
-                                                                                if victim is not parrot:
-                                                                                    if victim is not pig:
-                                                                                        if victim is not rabbit:
-                                                                                            if victim is not salmon:
-                                                                                                if victim is not sheep:
-                                                                                                    if victim is not skeleton horse:
-                                                                                                        if victim is not sniffer:
-                                                                                                            if victim is not squid:
-                                                                                                                if victim is not strider:
-                                                                                                                    if victim is not tadpole:
-                                                                                                                        if victim is not tropical fish:
-                                                                                                                            if victim is not turtle:
-                                                                                                                                if victim is not villager:
-                                                                                                                                    if victim is not wandering trader:
-                                                                                                                                        stop
+    if victim is allay:
+        arrest_crime(attacker, "mob")
+        stop
 
+    if victim is armadillo:
+        arrest_crime(attacker, "mob")
+        stop
 
-    # ========================================================
-    # 罪状
-    # ========================================================
+    if victim is axolotl:
+        arrest_crime(attacker, "mob")
+        stop
 
-    set {_reason} to "なんかかわいそう罪"
+    if victim is bat:
+        arrest_crime(attacker, "mob")
+        stop
 
+    if victim is camel:
+        arrest_crime(attacker, "mob")
+        stop
 
-    # ========================================================
-    # 逮捕
-    # ========================================================
+    if victim is cat:
+        arrest_crime(attacker, "mob")
+        stop
 
-    arrest_crime(attacker, "mob")
+    if victim is chicken:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is cod:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is cow:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is dolphin:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is donkey:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is fox:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is frog:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is glow squid:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is horse:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is mooshroom:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is mule:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is ocelot:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is panda:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is parrot:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is pig:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is rabbit:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is salmon:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is sheep:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is skeleton horse:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is sniffer:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is squid:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is strider:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is tadpole:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is tropical fish:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is turtle:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is villager:
+        arrest_crime(attacker, "mob")
+        stop
+
+    if victim is wandering trader:
+        arrest_crime(attacker, "mob")
+        stop

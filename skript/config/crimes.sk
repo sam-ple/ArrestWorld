@@ -1,9 +1,11 @@
 # ============================================================
 # ARREST GAME
 # File : config/crimes.sk
-# Version : v0.0.04
 #
 # 罪状設定
+#
+# falseにすると無効
+#
 # ============================================================
 
 function arrest_load_crime_config():
@@ -30,7 +32,7 @@ function arrest_load_crime_config():
     set {arrest::crime::chest::bail-name} to "金インゴット"
 
     set {arrest::crime::drop::enabled} to true
-    set {arrest::crime::drop::name} to "不法投棄罪"
+    set {arrest::crime::drop::name} to "ポイ捨て罪"
     set {arrest::crime::drop::jail-time} to 30
     set {arrest::crime::drop::bail-item} to copper ingot
     set {arrest::crime::drop::bail-amount} to 3
@@ -44,14 +46,14 @@ function arrest_load_crime_config():
     set {arrest::crime::egg::bail-name} to "銅インゴット"
 
     set {arrest::crime::flower::enabled} to true
-    set {arrest::crime::flower::name} to "花踏み罪"
+    set {arrest::crime::flower::name} to "花がかわいそう罪"
     set {arrest::crime::flower::jail-time} to 30
     set {arrest::crime::flower::bail-item} to copper ingot
     set {arrest::crime::flower::bail-amount} to 3
     set {arrest::crime::flower::bail-name} to "銅インゴット"
 
     set {arrest::crime::grass::enabled} to true
-    set {arrest::crime::grass::name} to "環境破壊罪"
+    set {arrest::crime::grass::name} to "草刈り無免許罪"
     set {arrest::crime::grass::jail-time} to 30
     set {arrest::crime::grass::bail-item} to copper ingot
     set {arrest::crime::grass::bail-amount} to 5
