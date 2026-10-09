@@ -8,6 +8,20 @@
 # 監視対象：
 # ・ARREST GAME対象ワールド
 # ・サバイバルモード
+# ・収監されていないプレイヤー
+#
+# 対象：
+# ・オーバーワールドの花
+# ・背の高い花
+# ・花びら
+# ・花らしい見た目の植物
+#
+# 対象外：
+# ・草、シダ
+# ・キノコ
+# ・ネザーの植物
+# ・エンドの植物
+# ・木の葉
 #
 # ============================================================
 
@@ -17,6 +31,9 @@
 # ============================================================
 
 every 1 tick:
+
+    if {arrest::enabled} is not true:
+        stop
 
     loop all players:
 
@@ -64,81 +81,135 @@ every 1 tick:
 
 
         # ====================================================
-        # 花か判定
+        # 通常の花
         # ====================================================
 
+        # タンポポ
         if {_block} is dandelion:
             arrest_crime({_p}, "flower")
             continue
 
+        # ポピー
         if {_block} is poppy:
             arrest_crime({_p}, "flower")
             continue
 
+        # ヒスイラン
         if {_block} is blue orchid:
             arrest_crime({_p}, "flower")
             continue
 
+        # アリウム
         if {_block} is allium:
             arrest_crime({_p}, "flower")
             continue
 
+        # ヒナソウ
         if {_block} is azure bluet:
             arrest_crime({_p}, "flower")
             continue
 
+        # 赤色のチューリップ
         if {_block} is red tulip:
             arrest_crime({_p}, "flower")
             continue
 
+        # 橙色のチューリップ
         if {_block} is orange tulip:
             arrest_crime({_p}, "flower")
             continue
 
+        # 白色のチューリップ
         if {_block} is white tulip:
             arrest_crime({_p}, "flower")
             continue
 
+        # 桃色のチューリップ
         if {_block} is pink tulip:
             arrest_crime({_p}, "flower")
             continue
 
+        # フランスギク
         if {_block} is oxeye daisy:
             arrest_crime({_p}, "flower")
             continue
 
+        # ヤグルマギク
         if {_block} is cornflower:
             arrest_crime({_p}, "flower")
             continue
 
+        # スズラン
         if {_block} is lily of the valley:
             arrest_crime({_p}, "flower")
             continue
 
+        # ウィザーローズ
         if {_block} is wither rose:
             arrest_crime({_p}, "flower")
             continue
 
+
+        # ====================================================
+        # 背の高い花
+        # ====================================================
+
+        # ヒマワリ
         if {_block} is sunflower:
             arrest_crime({_p}, "flower")
             continue
 
+        # ライラック
         if {_block} is lilac:
             arrest_crime({_p}, "flower")
             continue
 
+        # バラの低木
         if {_block} is rose bush:
             arrest_crime({_p}, "flower")
             continue
 
+        # ボタン
         if {_block} is peony:
             arrest_crime({_p}, "flower")
             continue
 
+
+        # ====================================================
+        # 特殊な花・花びら
+        # ====================================================
+
+        # トーチフラワー
         if {_block} is torchflower:
             arrest_crime({_p}, "flower")
             continue
 
+        # 桃色の花びら
         if {_block} is pink petals:
+            arrest_crime({_p}, "flower")
+            continue
+
+        # ウツボカズラ
+        if {_block} is pitcher plant:
+            arrest_crime({_p}, "flower")
+            continue
+
+        # 野花
+        if {_block} is wildflowers:
+            arrest_crime({_p}, "flower")
+            continue
+
+        # 閉じたヒトミソウ
+        if {_block} is closed eyeblossom:
+            arrest_crime({_p}, "flower")
+            continue
+
+        # 開いたヒトミソウ
+        if {_block} is open eyeblossom:
+            arrest_crime({_p}, "flower")
+            continue
+
+        # サボテンの花
+        if {_block} is cactus flower:
             arrest_crime({_p}, "flower")
             continue

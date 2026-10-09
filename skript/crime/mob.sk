@@ -4,8 +4,9 @@
 #
 # 犯罪：なんかかわいそう罪
 #
-# プレイヤーが敵対しないモブを攻撃した場合に逮捕
+# プレイヤーが友好・非敵対・中立モブを攻撃した場合に逮捕
 # ※ 動物だけではなく魚・イカなども対象
+# ※ 攻撃してダメージを与えた時点で逮捕
 #
 # ============================================================
 
@@ -17,143 +18,254 @@
 on damage of entity:
 
     # ========================================================
-    # 攻撃者がプレイヤーの場合のみ
+    # プレイヤーによる直接攻撃のみ
     # ========================================================
 
     attacker is a player
 
+    if damage cause is not entity attack:
+        stop
+
     # ========================================================
-    # 攻撃されたモブを判定
+    # 友好モブ
     # ========================================================
 
+    # アレイ（友好）
     if victim is allay:
         arrest_crime(attacker, "mob")
         stop
 
+    # アルマジロ（友好）
     if victim is armadillo:
         arrest_crime(attacker, "mob")
         stop
 
+    # ウーパールーパー（友好）
     if victim is axolotl:
         arrest_crime(attacker, "mob")
         stop
 
+    # コウモリ（友好）
     if victim is bat:
         arrest_crime(attacker, "mob")
         stop
 
+    # ラクダ（友好）
     if victim is camel:
         arrest_crime(attacker, "mob")
         stop
 
+    # ネコ（友好）
     if victim is cat:
         arrest_crime(attacker, "mob")
         stop
 
+    # ニワトリ（友好）
     if victim is chicken:
         arrest_crime(attacker, "mob")
         stop
 
+    # タラ（友好）
     if victim is cod:
         arrest_crime(attacker, "mob")
         stop
 
+    # ウシ（友好）
     if victim is cow:
         arrest_crime(attacker, "mob")
         stop
 
-    if victim is dolphin:
-        arrest_crime(attacker, "mob")
-        stop
-
+    # ロバ（友好）
     if victim is donkey:
         arrest_crime(attacker, "mob")
         stop
 
+    # キツネ（友好）
     if victim is fox:
         arrest_crime(attacker, "mob")
         stop
 
+    # カエル（友好）
     if victim is frog:
         arrest_crime(attacker, "mob")
         stop
 
+    # ヒカリイカ（友好）
     if victim is glow squid:
         arrest_crime(attacker, "mob")
         stop
 
+    # ハッピーガスト（友好）
+    if victim is happy ghast:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # ウマ（友好）
     if victim is horse:
         arrest_crime(attacker, "mob")
         stop
 
+    # ムーシュルーム（友好）
     if victim is mooshroom:
         arrest_crime(attacker, "mob")
         stop
 
+    # ラバ（友好）
     if victim is mule:
         arrest_crime(attacker, "mob")
         stop
 
+    # ヤマネコ（友好）
     if victim is ocelot:
         arrest_crime(attacker, "mob")
         stop
 
-    if victim is panda:
-        arrest_crime(attacker, "mob")
-        stop
-
+    # オウム（友好）
     if victim is parrot:
         arrest_crime(attacker, "mob")
         stop
 
+    # ブタ（友好）
     if victim is pig:
         arrest_crime(attacker, "mob")
         stop
 
+    # ウサギ（友好）
     if victim is rabbit:
         arrest_crime(attacker, "mob")
         stop
 
+    # サケ（友好）
     if victim is salmon:
         arrest_crime(attacker, "mob")
         stop
 
+    # ヒツジ（友好）
     if victim is sheep:
         arrest_crime(attacker, "mob")
         stop
 
+    # スケルトンホース（友好）
     if victim is skeleton horse:
         arrest_crime(attacker, "mob")
         stop
 
+    # スニッファー（友好）
     if victim is sniffer:
         arrest_crime(attacker, "mob")
         stop
 
+    # スノーゴーレム（友好）
+    if victim is snow golem:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # イカ（友好）
     if victim is squid:
         arrest_crime(attacker, "mob")
         stop
 
-    if victim is strider:
-        arrest_crime(attacker, "mob")
-        stop
-
+    # オタマジャクシ（友好）
     if victim is tadpole:
         arrest_crime(attacker, "mob")
         stop
 
+    # 熱帯魚（友好）
     if victim is tropical fish:
         arrest_crime(attacker, "mob")
         stop
 
+    # カメ（友好）
     if victim is turtle:
         arrest_crime(attacker, "mob")
         stop
 
+    # 村人（友好）
     if victim is villager:
         arrest_crime(attacker, "mob")
         stop
 
+    # 行商人（友好）
     if victim is wandering trader:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # 銅ゴーレム（友好）
+    if victim is copper golem:
+        arrest_crime(attacker, "mob")
+        stop
+
+
+    # ========================================================
+    # 非敵対モブ
+    # ========================================================
+
+    # イルカ（非敵対・攻撃されると反撃する場合あり）
+    if victim is dolphin:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # フグ（非敵対・接近時に毒ダメージあり）
+    if victim is pufferfish:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # ストライダー（非敵対）
+    if victim is strider:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # オウムガイ（非敵対）
+    if victim is nautilus:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # ゾンビホース（非敵対）
+    if victim is zombie horse:
+        arrest_crime(attacker, "mob")
+        stop
+
+
+    # ========================================================
+    # 中立モブ
+    # ========================================================
+
+    # パンダ（中立）
+    if victim is panda:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # ラマ（中立）
+    if victim is llama:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # 行商人のラマ（中立）
+    if victim is trader llama:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # ヤギ（中立）
+    if victim is goat:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # ミツバチ（中立）
+    if victim is bee:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # オオカミ（中立）
+    if victim is wolf:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # シロクマ（中立）
+    if victim is polar bear:
+        arrest_crime(attacker, "mob")
+        stop
+
+    # アイアンゴーレム（中立）
+    if victim is iron golem:
         arrest_crime(attacker, "mob")
         stop

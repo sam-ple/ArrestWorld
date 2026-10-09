@@ -19,11 +19,8 @@ on damage of player:
 
     attacker is a player
 
-#    set {_p} to attacker
-
     # --------------------------------------------------------
     # 逮捕
     # --------------------------------------------------------
 
-#    arrest_crime({_p}, "attack")
     arrest_crime(attacker, "attack")

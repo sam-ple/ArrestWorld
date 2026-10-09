@@ -1,14 +1,14 @@
 # ============================================================
 # ARREST GAME
 # File : arrest.sk
-# Version : v0.0.04
+# Version : v0.0.05
 #
 # ゲーム開始・停止・状態確認
 #
-# v0.0.04
-# ・v0.0.03の動作を維持
-# ・設定をconfigへ分離
-# ・逮捕処理をcoreへ集約
+# v0.0.05
+# ・/arrest start の開始演出を追加
+# ・3 → 2 → 1 → START! と効果音
+# ・既存のon / off / statusの動作は変更なし
 # ============================================================
 
 command /arrest [<text>]:
@@ -16,6 +16,14 @@ command /arrest [<text>]:
     trigger:
 
         if arg-1 is "on":
+
+            # ====================================================
+            # すでに実行中なら再起動しない
+            # ====================================================
+
+            if {arrest::enabled} is true:
+                send "&e[ARREST GAME] すでに実行中です。"
+                stop
 
             delete {arrest::enabled}
             delete {arrest::world}
@@ -30,8 +38,9 @@ command /arrest [<text>]:
 
             send "&a[ARREST GAME] 判定を開始しました。"
             send "&7対象ワールド：%{arrest::world}%"
-            send "&7Version：v0.0.04"
+            send "&7Version：v0.0.05"
             stop
+
 
         if arg-1 is "off":
 
@@ -39,6 +48,34 @@ command /arrest [<text>]:
 
             send "&c[ARREST GAME] 判定を停止しました。"
             stop
+
+
+        if arg-1 is "start":
+
+            loop all players:
+                send title "&e&l3" with subtitle "" to loop-player for 1 second
+                play sound "block.note_block.pling" with volume 1 and pitch 1 to loop-player
+
+            wait 1 second
+
+            loop all players:
+                send title "&e&l2" with subtitle "" to loop-player for 1 second
+                play sound "block.note_block.pling" with volume 1 and pitch 1 to loop-player
+
+            wait 1 second
+
+            loop all players:
+                send title "&e&l1" with subtitle "" to loop-player for 1 second
+                play sound "block.note_block.pling" with volume 1 and pitch 1 to loop-player
+
+            wait 1 second
+
+            loop all players:
+                send title "&a&lSTART!" with subtitle "" to loop-player for 2 seconds
+                play sound "entity.player.levelup" with volume 1 and pitch 1 to loop-player
+
+            stop
+
 
         if arg-1 is "status":
 
@@ -49,6 +86,8 @@ command /arrest [<text>]:
                 send "&c[ARREST GAME] OFF"
             stop
 
+
         send "&e/arrest on"
         send "&e/arrest off"
+        send "&e/arrest start"
         send "&e/arrest status"

@@ -161,7 +161,7 @@ Multiverse-Coreを使用している場合：
 ### ワールド作成
 
 ```text
-/mv create arrest
+/mv create arrest normal
 ```
 
 ### ARRESTワールドへ移動

@@ -2,11 +2,19 @@
 # ARREST GAME
 # File : crime/grass.sk
 #
-# 短い草・背の高い草を壊した場合に逮捕
+# ・短い草を壊す
+# ・背の高い草を壊す
+# ・ネザーの新芽を壊す
+# ・真紅の根を壊す
+# ・歪んだ根を壊す
 #
 # ============================================================
 
 
-on break of short grass or tall grass:
+# ============================================================
+# 草・ネザー植物を壊した場合に逮捕
+# ============================================================
+
+on break of short grass or tall grass or nether sprouts or crimson roots or warped roots:
 
     arrest_crime(player, "grass")
